@@ -1,12 +1,13 @@
 \documentclass{article}
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{hyperref}
+\usepackage{subcaption}
 \usepackage{quantumcubemodel}
 \usepackage[backend=biber, style=authortitle]{biblatex}
 \addbibresource{qcm.bib}
 
 \title{Quantum Cube Model LaTeX Package (v0.1.0)}
-\author{Cedric Schacht \\ \texttt{qcm@sch8.eu}}
+\author{Cedric Schacht \\ \texttt{cedric.schacht@mni.thm.de}}
 \date{\today}
 
 \begin{document}
@@ -27,50 +28,6 @@ This package requires the following LaTeX packages:
 \RequirePackage{tikz}
 \usetikzlibrary{3d, calc, arrows.meta}
 \end{verbatim}
-
-\section*{Provided Commands}
-
-\begin{description}
-    \item Draws a diagram for a \textbf{single qubit} with the specified quantum state.
-    \begin{verbatim}
-        \qcmQ{<amplitude>:<phase>}{<amplitude>:<phase>}
-    \end{verbatim}
-
-    \item Draws a diagram for \textbf{two qubits} with the given specified quantum state.
-    \begin{verbatim}
-        \qcmQQ{<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-    \end{verbatim}
-
-    \item  Draws a diagram for \textbf{three qubits} with the given specified quantum state.
-    \begin{verbatim}
-        \qcmQQQ{<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-            {<amplitude>:<phase>}
-    \end{verbatim}
-
-  
-    \item Changes the scale of the generated diagrams (e.g., \verb|\qcmScale{3}| is a good starting point).
-  
-    \item Draws the wireframe of the transition diagram used in the quantum cube model.
-        To be used inside a tikz environment.
-    \begin{verbatim}
-        \qcmWireframe{1} % for a single qubit
-        \qcmWireframe{2} % for two qubits
-        \qcmWireframe{3} % for three qubits
-    \end{verbatim}
-\end{description}
-
-\section*{Usage Examples}
-Please visit \href{https://github.com/CedricSchacht/quantumcubemodel}{https://github.com/CedricSchacht/quantumcubemodel}
-for further example usages.
 
 \section*{License}
 \begin{verbatim}
@@ -100,5 +57,230 @@ SOFTWARE.
 \section*{References}
 
 \fullcite{justQuantumComputingCompact2022}
+
+\section*{Provided Commands}
+
+\begin{description}
+    \item Draws a diagram for a \textbf{single qubit} with the specified quantum state.
+    \begin{verbatim}
+\qcmQ{<amplitude>:<phase>}{<amplitude>:<phase>}
+    \end{verbatim}
+
+    \item Draws a diagram for \textbf{two qubits} with the given specified quantum state.
+    \begin{verbatim}
+\qcmQQ{<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    \end{verbatim}
+
+    \item  Draws a diagram for \textbf{three qubits} with the given specified quantum state.
+    \begin{verbatim}
+\qcmQQQ{<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    {<amplitude>:<phase>}
+    \end{verbatim}
+
+  
+    \item Changes the scale of the generated diagrams (e.g., \verb|\qcmScale{3}| is a good starting point).
+  
+    \item Draws the wireframe of the transition diagram used in the quantum cube model.
+        To be used inside a tikz environment.
+    \begin{verbatim}
+        \qcmWireframe{1} % for a single qubit
+        \qcmWireframe{2} % for two qubits
+        \qcmWireframe{3} % for three qubits
+    \end{verbatim}
+\end{description}
+
+\section*{Usage Examples}
+Please visit \href{https://github.com/CedricSchacht/quantumcubemodel}{https://github.com/CedricSchacht/quantumcubemodel}
+for further example usages.
+\subsection*{Single qubit system}
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmQ{1:0}{0:0}
+    \end{verbatim}
+    \centering
+    \qcmQ{1:0}{0:0}
+    \caption{The $\ket{0} = 1 \cdot \ket{0} + 0 \cdot \ket{1}$ state}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\def\qcmScale(5)
+\qcmQ{1:0}{0:0}
+    \end{verbatim}
+    \centering
+    \def\qcmScale{5}
+    \qcmQ{1:0}{0:0}
+    \caption{Make it bigger default is 3}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmQ{0:0}{1:0}
+    \end{verbatim}
+    \centering
+    \qcmQ{0:0}{1:0}
+    \caption{The $\ket{1} = 0 \cdot \ket{0} + 1 \cdot \ket{1}$ state}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmQ{0.5:0}{0.86:90}
+    \end{verbatim}
+    \centering
+    \qcmQ{0.5:0}{0.86:90}
+    \caption{Mixed state with phase on $\ket{1}$}
+\end{figure}
+
+\pagebreak
+\subsection*{Two qubit systems}
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
+    \end{verbatim}
+    \centering
+    \qcmQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
+    \caption{Mixed state with phases on two qubits}
+\end{figure}
+
+\pagebreak
+\subsection*{Three qubit systems}
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmQQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
+    \end{verbatim}
+    \centering
+    \def\qcmScale{2}
+    \qcmQQQ{0.5:12}{0.5:180}{0:0}{0:0}{0:0}{0:0}{0.71:40}{0:0}
+    \caption{Mixed state with phases on Three qubits}
+\end{figure}
+
+\subsection*{Wireframe}
+\begin{figure}[!ht]
+    \begin{verbatim}
+\def\qcmScale{1}
+\begin{tikzpicture}[scale=\qcmScale]
+    \qcmWireframe{1}
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
+\end{tikzpicture}
+    \end{verbatim}
+    \centering
+    \def\qcmScale{0.8}
+    \begin{tikzpicture}[scale=\qcmScale]
+        \qcmWireframe{1}
+        \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
+    \end{tikzpicture}
+    \caption{Wireframe for Pauli Z Gate on one qubit}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\def\qcmScale{1}
+\begin{tikzpicture}[scale=\qcmScale]
+    \qcmWireframe{2}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+\end{tikzpicture}
+    \end{verbatim}
+    \centering
+    \def\qcmScale{0.8}
+    \begin{tikzpicture}[scale=\qcmScale]
+        \qcmWireframe{2}
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+    \end{tikzpicture}
+    \caption{Wireframe for Hadamard Gate on the first qubit of a system of two}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\def\qcmScale{1}
+\begin{tikzpicture}[scale=\qcmScale]
+    \qcmWireframe{2}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+\end{tikzpicture}
+    \end{verbatim}
+    \centering
+    \def\qcmScale{0.8}
+    \begin{tikzpicture}[scale=\qcmScale]
+        \qcmWireframe{3}
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
+        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+    \caption{Wireframe for Hadamard Gate on the first qubit of a system of three}
+\end{figure}
+
+
+\pagebreak
+\subsection*{Full Diagram}
+\begin{figure}[htbp]
+    \begin{verbatim}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \def\qcmScale{2}
+        \centering
+        \qcmQQQ{1:0}{0:0}{0:0}{0:0}{0:0}{0:0}{0:0}{0:0}
+        \caption{Initial state $\ket{000}$}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \def\qcmScale{1}
+        \begin{tikzpicture}[scale=\qcmScale]
+            \draw[white] (-0.3,-2, 0) rectangle (1.44, 1.3, -1);
+            \qcmWireframe{3}
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
+        \end{tikzpicture}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.4\textwidth}
+        \def\qcmScale{2}
+        \centering
+        \qcmQQQ{0.71:0}{0:0}{0.71:0}{0:0}{0:0}{0:0}{0:0}{0:0}
+        \caption{Terminal state $\frac{1}{\sqrt{2}}(\ket{000} + \ket{100})$ }
+    \end{subfigure}
+    \caption{Effect of Hadamard on the first bit in a system of three}
+\end{figure}
+    \end{verbatim}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \def\qcmScale{2}
+        \centering
+        \qcmQQQ{1:0}{0:0}{0:0}{0:0}{0:0}{0:0}{0:0}{0:0}
+        \caption{Initial state $\ket{000}$}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \def\qcmScale{1}
+        \begin{tikzpicture}[scale=\qcmScale]
+            \draw[white] (-0.3,-2, 0) rectangle (1.44, 1.3, -1);
+            \qcmWireframe{3}
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
+            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
+        \end{tikzpicture}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.4\textwidth}
+        \def\qcmScale{2}
+        \centering
+        \qcmQQQ{0.71:0}{0:0}{0.71:0}{0:0}{0:0}{0:0}{0:0}{0:0}
+        \caption{Terminal state $\frac{1}{\sqrt{2}}(\ket{000} + \ket{100})$ }
+    \end{subfigure}
+    \caption{Effect of Hadamard on the first bit in a system of three}
+\end{figure}
 
 \end{document}
