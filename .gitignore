@@ -1,0 +1,63 @@
+# LaTeX intermediate files
+out/
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.glo
+*.gls
+*.glg
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.lox
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.snm
+*.synctex.gz
+*.toc
+*.upa
+*.upb
+*.vrb
+*.xdy
+*.tdo
+
+# Build artifacts
+*.dvi
+*.pdf
+*.ps
+*.synctex*
+*.run.xml
+
+# Editors
+*.swp
+*.bak
+*~
+.#*
+.vscode/*
+
+# TeXstudio and Overleaf
+*.synctex.gz
+*.pdfsync
+*.txssw
+
+# Generated package files
+*.sty
+*.cls
+
+# For projects using latexmk or arara
+latexmkrc
+*.latexmk
+
+# Mac and Windows junk
+.DS_Store
+Thumbs.db

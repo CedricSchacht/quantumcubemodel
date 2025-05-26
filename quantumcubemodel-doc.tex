@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{quantumcubemodel}
+\usepackage[backend=biber, style=authortitle]{biblatex}
+\addbibresource{qcm.bib}
+
+\title{Quantum Cube Model LaTeX Package (v0.1.0)}
+\author{Cedric Schacht \\ \texttt{qcm@sch8.eu}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+
+The \textbf{Quantum Cube Model (QCM)} package provides commands that make it easy to create diagrams representing the quantum cube model for up to 3 qubits.
+The package simplifies drawing complex quantum state diagrams inspired by Prof.~B.~Just's framework.
+
+\section*{Requirements}
+
+This package requires the following LaTeX packages:
+
+\begin{verbatim}
+\RequirePackage{braket}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{3d, calc, arrows.meta}
+\end{verbatim}
+
+\section*{Provided Commands}
+
+\begin{description}
+    \item Draws a diagram for a \textbf{single qubit} with the specified quantum state.
+    \begin{verbatim}
+        \qcmQ{<amplitude>:<phase>}{<amplitude>:<phase>}
+    \end{verbatim}
+
+    \item Draws a diagram for \textbf{two qubits} with the given specified quantum state.
+    \begin{verbatim}
+        \qcmQQ{<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+    \end{verbatim}
+
+    \item  Draws a diagram for \textbf{three qubits} with the given specified quantum state.
+    \begin{verbatim}
+        \qcmQQQ{<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+            {<amplitude>:<phase>}
+    \end{verbatim}
+
+  
+    \item Changes the scale of the generated diagrams (e.g., \verb|\qcmScale{3}| is a good starting point).
+  
+    \item Draws the wireframe of the transition diagram used in the quantum cube model.
+        To be used inside a tikz environment.
+    \begin{verbatim}
+        \qcmWireframe{1} % for a single qubit
+        \qcmWireframe{2} % for two qubits
+        \qcmWireframe{3} % for three qubits
+    \end{verbatim}
+\end{description}
+
+\section*{Usage Examples}
+
+\textit{Examples will be added here — please provide code snippets and expected output visuals.}
+
+\section*{License}
+
+
+\section*{References}
+
+\fullcite{justQuantumComputingCompact2022}
+
+\end{document}
