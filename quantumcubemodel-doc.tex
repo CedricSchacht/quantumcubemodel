@@ -163,6 +163,7 @@ for further example usages.
     \caption{Mixed state with phases on Three qubits}
 \end{figure}
 
+\pagebreak
 \subsection*{Wireframe}
 \begin{figure}[!ht]
     \begin{verbatim}
@@ -173,7 +174,7 @@ for further example usages.
 \end{tikzpicture}
     \end{verbatim}
     \centering
-    \def\qcmScale{0.8}
+    \def\qcmScale{1}
     \begin{tikzpicture}[scale=\qcmScale]
         \qcmWireframe{1}
         \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
@@ -191,7 +192,7 @@ for further example usages.
 \end{tikzpicture}
     \end{verbatim}
     \centering
-    \def\qcmScale{0.8}
+    \def\qcmScale{1}
     \begin{tikzpicture}[scale=\qcmScale]
         \qcmWireframe{2}
         \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
@@ -203,14 +204,17 @@ for further example usages.
 \begin{figure}[!ht]
     \begin{verbatim}
 \def\qcmScale{1}
+\def\qcmScale{1}
 \begin{tikzpicture}[scale=\qcmScale]
-    \qcmWireframe{2}
+    \qcmWireframe{3}
     \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
     \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
 \end{tikzpicture}
     \end{verbatim}
     \centering
-    \def\qcmScale{0.8}
+    \def\qcmScale{1}
     \begin{tikzpicture}[scale=\qcmScale]
         \qcmWireframe{3}
         \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
@@ -221,8 +225,7 @@ for further example usages.
     \caption{Wireframe for Hadamard Gate on the first qubit of a system of three}
 \end{figure}
 
-
-\pagebreak
+\clearpage
 \subsection*{Full Diagram}
 \begin{figure}[htbp]
     \begin{verbatim}
