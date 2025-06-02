@@ -92,9 +92,9 @@ SOFTWARE.
     \item Draws the wireframe of the transition diagram used in the quantum cube model.
         To be used inside a tikz environment.
     \begin{verbatim}
-        \qcmWireframe{1} % for a single qubit
-        \qcmWireframe{2} % for two qubits
-        \qcmWireframe{3} % for three qubits
+\qcmWireframe{1} % for a single qubit
+\qcmWireframe{2} % for two qubits
+\qcmWireframe{3} % for three qubits
     \end{verbatim}
 
     \item Transitions for frequently used Gates
@@ -157,95 +157,29 @@ for further example usages.
     \end{verbatim}
     \centering
     \qcmQ{0.5:0}{0.86:90}
-    \caption{Mixed state with phase on $\ket{1}$}
+    \caption{Superposition state with phase on $\ket{1}$}
 \end{figure}
 
 \pagebreak
-\subsection*{Two qubit systems}
-\begin{figure}[!ht]
+
+\noindent\begin{minipage}[t]{0.5\textwidth}
+    \subsection*{Two qubit systems}
     \begin{verbatim}
 \qcmQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
     \end{verbatim}
     \centering
     \qcmQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
-    \caption{Mixed state with phases on two qubits}
-\end{figure}
-
-\pagebreak
-\subsection*{Three qubit systems}
-\begin{figure}[!ht]
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+    \subsection*{Three qubit systems}
     \begin{verbatim}
 \qcmQQQ{0.5:12}{0.5:180}{0:0}{0.71:40}
     \end{verbatim}
     \centering
-    \def\qcmScale{2}
+    \def\qcmScale{2.5}
     \qcmQQQ{0.5:12}{0.5:180}{0:0}{0:0}{0:0}{0:0}{0.71:40}{0:0}
-    \caption{Mixed state with phases on Three qubits}
-\end{figure}
+\end{minipage}
 
-\pagebreak
-\subsection*{Wireframe}
-\begin{figure}[!ht]
-    \begin{verbatim}
-\def\qcmScale{1}
-\begin{tikzpicture}[scale=\qcmScale]
-    \qcmWireframe{1}
-    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
-\end{tikzpicture}
-    \end{verbatim}
-    \centering
-    \def\qcmScale{1}
-    \begin{tikzpicture}[scale=\qcmScale]
-        \qcmWireframe{1}
-        \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
-    \end{tikzpicture}
-    \caption{Wireframe for Pauli Z Gate on one qubit}
-\end{figure}
-
-\begin{figure}[!ht]
-    \begin{verbatim}
-\def\qcmScale{1}
-\begin{tikzpicture}[scale=\qcmScale]
-    \qcmWireframe{2}
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-\end{tikzpicture}
-    \end{verbatim}
-    \centering
-    \def\qcmScale{1}
-    \begin{tikzpicture}[scale=\qcmScale]
-        \qcmWireframe{2}
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-    \end{tikzpicture}
-    \caption{Wireframe for Hadamard Gate on the first qubit of a system of two}
-\end{figure}
-
-\begin{figure}[!ht]
-    \begin{verbatim}
-\def\qcmScale{1}
-\def\qcmScale{1}
-\begin{tikzpicture}[scale=\qcmScale]
-    \qcmWireframe{3}
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
-    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
-\end{tikzpicture}
-    \end{verbatim}
-    \centering
-    \def\qcmScale{1}
-    \begin{tikzpicture}[scale=\qcmScale]
-        \qcmWireframe{3}
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
-        \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
-    \end{tikzpicture}
-    \caption{Wireframe for Hadamard Gate on the first qubit of a system of three}
-\end{figure}
-
-\clearpage
 \subsection*{Full Diagram}
 \begin{figure}[htbp]
     \begin{verbatim}
@@ -260,14 +194,8 @@ for further example usages.
     \begin{subfigure}[b]{0.2\textwidth}
         \centering
         \def\qcmScale{1}
-        \begin{tikzpicture}[scale=\qcmScale]
-            \draw[white] (-0.3,-2, 0) rectangle (1.44, 1.3, -1);
-            \qcmWireframe{3}
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
-        \end{tikzpicture}
+        \qcmTransitionHadamardQQQ{1}
+        \vspace*{1.5cm}
     \end{subfigure}%
     \begin{subfigure}[b]{0.4\textwidth}
         \def\qcmScale{2}
@@ -288,14 +216,8 @@ for further example usages.
     \begin{subfigure}[b]{0.2\textwidth}
         \centering
         \def\qcmScale{1}
-        \begin{tikzpicture}[scale=\qcmScale]
-            \draw[white] (-0.3,-2, 0) rectangle (1.44, 1.3, -1);
-            \qcmWireframe{3}
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
-            \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
-        \end{tikzpicture}
+        \qcmTransitionHadamardQQQ{1}
+        \vspace*{1.5cm}
     \end{subfigure}%
     \begin{subfigure}[b]{0.4\textwidth}
         \def\qcmScale{2}
@@ -304,6 +226,127 @@ for further example usages.
         \caption{Terminal state $\frac{1}{\sqrt{2}}(\ket{000} + \ket{100})$ }
     \end{subfigure}
     \caption{Effect of Hadamard on the first bit in a system of three}
+\end{figure}
+
+\subsection*{Transitions}
+For one Qubit systems use the \verb|\qcmTransition<GateName>Q{}| commands
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionHadamardQ{}
+    \end{verbatim}
+    \centering
+    \qcmTransitionHadamardQ{}
+    \caption{Transition diagram for Hadamard on a single Qubit}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionPauliXQ{}
+    \end{verbatim}
+    \centering
+    \qcmTransitionPauliXQ{}
+    \caption{Transition diagram for PauliX on a single Qubit}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionPauliZQ{}
+    \end{verbatim}
+    \centering
+    \qcmTransitionPauliZQ{}
+    \caption{Transition diagram for PauliZ on a single Qubit}
+\end{figure}
+
+For two Qubit systems use the \verb|\qcmTransition<GateName>QQ{<1> or <2>}| commands
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionHadamardQQ{1}
+    \end{verbatim}
+    \centering
+    \qcmTransitionHadamardQQ{1}
+    \caption{Transition diagram for Hadamard on the first of two Qubits}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionPauliXQQ{2}
+    \end{verbatim}
+    \centering
+    \qcmTransitionPauliXQQ{2}
+    \caption{Transition diagram for PauliX on the second of two Qubits}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionCNOTQQ{1}{2}
+    \end{verbatim}
+    \centering
+    \qcmTransitionCNOTQQ{1}{2}
+    \caption{Transition diagram for CNOT with Control=1 and Target=2}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionCNOTQQ{2}{1}
+    \end{verbatim}
+    \centering
+    \qcmTransitionCNOTQQ{2}{1}
+    \caption{Transition diagram for CNOT with Control=2 and Target=1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionHadamardQQQ{2}
+    \end{verbatim}
+    \centering
+    \qcmTransitionHadamardQQQ{2}
+    \caption{Transition diagram for Hadamard on the second of three Qubits}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionPauliXQQQ{3}
+    \end{verbatim}
+    \centering
+    \qcmTransitionPauliXQQQ{3}
+    \caption{Transition diagram for PauliX on the third of three Qubits}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionCNOTQQQ{1}{2}
+    \end{verbatim}
+    \centering
+    \qcmTransitionCNOTQQQ{1}{2}
+    \caption{Transition diagram for CNOT with Control=1 and Target=2}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionCNOTQQQ{3}{1}
+    \end{verbatim}
+    \centering
+    \qcmTransitionCNOTQQQ{3}{1}
+    \caption{Transition diagram for CNOT with Control=3 and Target=1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionToffolieQQQ{1}{2}{3}
+    \end{verbatim}
+    \centering
+    \qcmTransitionToffolieQQQ{1}{2}{3}
+    \caption{Transition diagram for CNOT with Control= 1 and 2 and Target=3}
+\end{figure}
+
+\begin{figure}[!ht]
+    \begin{verbatim}
+\qcmTransitionToffolieQQQ{1}{3}{2}
+    \end{verbatim}
+    \centering
+    \qcmTransitionToffolieQQQ{1}{3}{2}
+    \caption{Transition diagram for CNOT with Control= 1 and 3 and Target=2}
 \end{figure}
 
 \end{document}
