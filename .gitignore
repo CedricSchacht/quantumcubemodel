@@ -50,10 +50,6 @@ out/
 *.pdfsync
 *.txssw
 
-# Generated package files
-*.sty
-*.cls
-
 # For projects using latexmk or arara
 latexmkrc
 *.latexmk

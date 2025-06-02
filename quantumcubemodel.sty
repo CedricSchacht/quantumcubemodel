@@ -1,0 +1,637 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{quantumcubemodel}[2025/05/20 v0.1.0 Quantum Cube Model Visualization]
+
+\RequirePackage{braket}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{3d, calc, arrows.meta}
+
+\makeatletter
+% Helper macro to split one argument "a:b" into \valA and \valB
+\newcommand{\splitArg}[1]{%
+  \def\valA{}%
+  \def\valB{}%
+  \expandafter\split@helper#1\relax
+}
+\def\split@helper#1:#2\relax{%
+  \def\valA{#1}%
+  \def\valB{#2}%
+}
+\makeatother
+
+\newcommand{\qcmWireframe}[1]{
+  \ifnum#1=1
+    \draw[gray] (0, 0, 0) -- (1, 0, 0);
+  \else
+  \ifnum#1=2
+    \draw[gray] (0, 0, 0) -- (1, 0, 0);
+    \draw[gray] (1, 0, 0) -- (1, 1, 0);
+    \draw[gray] (1, 1, 0) -- (0, 1, 0);
+    \draw[gray] (0, 1, 0) -- (0, 0, 0);
+  \else
+  \ifnum#1=3
+    \draw[gray] (0, 0, 0) -- (1, 0, 0);
+    \draw[gray] (1, 0, 0) -- (1, 1, 0);
+    \draw[gray] (1, 1, 0) -- (0, 1, 0);
+    \draw[gray] (0, 1, 0) -- (0, 0, 0);
+
+    \draw[gray] (0, 0, -1) -- (1, 0, -1);
+    \draw[gray] (1, 0, -1) -- (1, 1, -1);
+    \draw[gray] (1, 1, -1) -- (0, 1, -1);
+    \draw[gray] (0, 1, -1) -- (0, 0, -1);
+
+    \draw[gray] (0, 0, 0) -- (0, 0, -1);
+    \draw[gray] (1, 0, 0) -- (1, 0, -1);
+    \draw[gray] (1, 1, 0) -- (1, 1, -1);
+    \draw[gray] (0, 1, 0) -- (0, 1, -1);
+  \else
+    \PackageError{quantumcube}{QCM Wireframe not implemented for #1-Qubits}{Quantum Cube Model is only implemented up to 3 Qubits}
+  \fi
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransition}[1]{
+  \begin{tikzpicture}[scale=3]
+    \qcmWireframe{#1}
+  \end{tikzpicture}
+}
+
+\def\qcmScale{3}
+
+% Define a macro for a 1-qubit quantum cube
+\newcommand{\qcmQ}[2]{%
+  \splitArg{#1}
+  \let\firstA\valA
+  \let\firstB\valB
+  \splitArg{#2}
+  \let\secondA\valA
+  \let\secondB\valB
+
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 0.3, 0);
+    \qcmWireframe{1}
+
+    % |0>
+    \begin{scope}[canvas is xy plane at z=0, rotate around={\firstB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\firstA -0.15, 0.3*\firstA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\firstA -0.15, -0.15);
+    \end{scope}
+    \node at (0.2, -0.2, 0) {\tiny{$\ket{0}$}};
+
+    % |1>
+    \begin{scope}[canvas is xy plane at z=0, shift={(1,0)}, rotate around={\secondB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\secondA -0.15, 0.3*\secondA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\secondA -0.15, -0.15);
+    \end{scope}
+    \node at (1.2, -0.2, 0) {\tiny{$\ket{1}$}};
+  \end{tikzpicture}
+}
+
+% Define a macro for a 2-qubit quantum cube
+\newcommand{\qcmQQ}[4]{%
+  \splitArg{#1}
+  \let\firstA\valA
+  \let\firstB\valB
+  \splitArg{#2}
+  \let\secondA\valA
+  \let\secondB\valB
+  \splitArg{#3}
+  \let\thirdA\valA
+  \let\thirdB\valB
+  \splitArg{#4}
+  \let\fourthA\valA
+  \let\fourthB\valB
+
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{2}
+
+    % |00>
+    \begin{scope}[canvas is xy plane at z=0, rotate around={\firstB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\firstA -0.15, 0.3*\firstA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\firstA -0.15, -0.15);
+    \end{scope}
+    \node at (0.2, -0.2, 0) {\tiny{$\ket{00}$}};
+
+    % |01>
+    \begin{scope}[canvas is xy plane at z=0, shift={(0,1)}, rotate around={\secondB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\secondA -0.15, 0.3*\secondA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\secondA -0.15, -0.15);
+    \end{scope}
+    \node at (0.2, 0.8, 0) {\tiny{$\ket{01}$}};
+
+    % |10>
+    \begin{scope}[canvas is xy plane at z=0, shift={(1,0)}, rotate around={\thirdB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\thirdA -0.15, 0.3*\thirdA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\thirdA -0.15, -0.15);
+    \end{scope}
+    \node at (1.2, -0.2, 0) {\tiny{$\ket{10}$}};
+
+    % |11>
+    \begin{scope}[canvas is xy plane at z=0, shift={(1,1)}, rotate around={\fourthB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\fourthA -0.15, 0.3*\fourthA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\fourthA -0.15, -0.15);
+    \end{scope}
+    \node at (1.2, 0.8, 0) {\tiny{$\ket{11}$}};
+  \end{tikzpicture}
+}
+
+% Define a macro for a 3-qubit quantum cube
+\newcommand{\qcmQQQ}[8]{%
+  \splitArg{#1}
+  \let\firstA\valA
+  \let\firstB\valB
+  \splitArg{#2}
+  \let\secondA\valA
+  \let\secondB\valB
+  \splitArg{#3}
+  \let\thirdA\valA
+  \let\thirdB\valB
+  \splitArg{#4}
+  \let\fourthA\valA
+  \let\fourthB\valB
+  \splitArg{#5}
+  \let\fifthA\valA
+  \let\fifthB\valB
+  \splitArg{#6}
+  \let\sixthA\valA
+  \let\sixthB\valB
+  \splitArg{#7}
+  \let\seventhA\valA
+  \let\seventhB\valB
+  \splitArg{#8}
+  \let\eighthA\valA
+  \let\eighthB\valB
+
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.3,-0.3, 0) rectangle (1.44, 1.3, -1);
+    \qcmWireframe{3}
+
+    % |000>
+    \begin{scope}[canvas is xy plane at z=0, rotate around={\firstB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\firstA -0.15, 0.3*\firstA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\firstA -0.15, -0.15);
+    \end{scope}
+    \node at (0.3, -0.2, 0) {\tiny{$\ket{000}$}};
+
+    % |010>
+    \begin{scope}[canvas is xy plane at z=0, shift={(0,1)}, rotate around={\secondB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\secondA -0.15, 0.3*\secondA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\secondA -0.15, -0.15);
+    \end{scope}
+    \node at (0.3, 0.8, 0) {\tiny{$\ket{010}$}};
+
+    % |100>
+    \begin{scope}[canvas is xy plane at z=0, shift={(1,0)}, rotate around={\thirdB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\thirdA -0.15, 0.3*\thirdA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\thirdA -0.15, -0.15);
+    \end{scope}
+    \node at (1.3, -0.2, 0) {\tiny{$\ket{100}$}};
+
+    % |110>
+    \begin{scope}[canvas is xy plane at z=0, shift={(1,1)}, rotate around={\fourthB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\fourthA -0.15, 0.3*\fourthA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\fourthA -0.15, -0.15);
+    \end{scope}
+    \node at (1.3, 0.8, 0) {\tiny{$\ket{110}$}};
+
+    % |001>
+    \begin{scope}[canvas is xy plane at z=-1, rotate around={\fifthB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\fifthA -0.15, 0.3*\fifthA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\fifthA -0.15, -0.15);
+    \end{scope}
+    \node at (0.3, -0.2, -1) {\tiny{$\ket{001}$}};
+
+    % |011>
+    \begin{scope}[canvas is xy plane at z=-1, shift={(0,1)}, rotate around={\sixthB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\sixthA -0.15, 0.3*\sixthA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\sixthA -0.15, -0.15);
+    \end{scope}
+    \node at (0.3, 0.8, -1) {\tiny{$\ket{011}$}};
+
+    % |101>
+    \begin{scope}[canvas is xy plane at z=-1, shift={(1,0)}, rotate around={\seventhB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\seventhA -0.15, 0.3*\seventhA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\seventhA -0.15, -0.15);
+    \end{scope}
+    \node at (1.3, -0.2, -1) {\tiny{$\ket{101}$}};
+
+    % |111>
+    \begin{scope}[canvas is xy plane at z=-1, shift={(1,1)}, rotate around={\eighthB:(0,0,0)}]
+      \draw[fill=gray!30] (-0.15,-0.15) rectangle (0.15, 0.15);
+      \draw[fill=teal] (-0.15,-0.15) rectangle (0.3*\eighthA -0.15, 0.3*\eighthA -0.15);
+      \draw[black, ->, thick, >=Stealth] (-0.151,-0.15) -- (0.3*\eighthA -0.15, -0.15);
+    \end{scope}
+    \node at (1.3, 0.8, -1) {\tiny{$\ket{111}$}};
+  \end{tikzpicture}
+}
+
+%region ------- Transition on 1 Qubit
+\newcommand{\qcmTransitionHadamardQ}[0]{%
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 0.3, 0);
+    \qcmWireframe{1}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+  \end{tikzpicture}
+}
+
+\newcommand{\qcmTransitionPauliXQ}[0]{%
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 0.3, 0);
+    \qcmWireframe{1}
+    \draw[black, thick, <->, >=Stealth] (0,0,0) -- (1,0,0);
+  \end{tikzpicture}
+}
+
+\newcommand{\qcmTransitionPauliZQ}[0]{%
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 0.3, 0);
+    \qcmWireframe{1}
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
+  \end{tikzpicture}
+}
+
+%endregion -----
+%region ------- Transition on 2 Qubits
+
+\newcommand{\qcmTransitionHadamardQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{2}
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{2}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (1,0,0) -- (1,1,0);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionPauliXQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{2}
+      \draw[black, thick, <->, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, <->, >=Stealth] (0,1,0) -- (1,1,0);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{2}
+    \draw[black, thick, <->, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,1,0);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionPauliZQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{2}
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,1,0) -- (1,1,0);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{2}
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (1,0,0) -- (1,1,0);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionCNOTQQ}[2]{%
+  \ifnum#1=1
+    \ifnum#2=2
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{2}
+        \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,1,0);
+      \end{tikzpicture}
+    \else
+      \PackageError{quantumcube}{#1 or #2 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+    \fi
+  \else
+  \ifnum#1=2
+    \ifnum#2=1
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{2}
+        \draw[black, thick, <->, >=Stealth] (0,1,0) -- (1,1,0);
+      \end{tikzpicture}
+    \else
+      \PackageError{quantumcube}{#1 or #2 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+    \fi
+  \else
+  \PackageError{quantumcube}{#1 or #2 is not a valid Qubit in a 2 Qubit system}{#1 is not a valid Qubit in a 2 Qubit system}
+  \fi
+  \fi
+}
+
+%endregion ---------
+%region ------- Transition on 3 Qubits
+
+\newcommand{\qcmTransitionHadamardQQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (1,1,0);
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (1,0,-1);
+      \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (1,0,0) -- (1,1,0);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,-1) -- (0,1,-1);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (1,0,-1) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \ifnum#1=3
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,0,0) -- (0,0,-1);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (0,1,0) -- (0,1,-1);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (1,0,0) -- (1,0,-1);
+    \draw[black, thick, {Circle}-{Circle}, >=Stealth] (1,1,0) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 3 Qubit system}{#1 is not a valid Qubit in a 3 Qubit system}
+  \fi
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionPauliXQQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, <->, >=Stealth] (0,1,0) -- (1,1,0);
+      \draw[black, thick, <->, >=Stealth] (0,0,-1) -- (1,0,-1);
+      \draw[black, thick, <->, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, <->, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,1,0);
+    \draw[black, thick, <->, >=Stealth] (0,0,-1) -- (0,1,-1);
+    \draw[black, thick, <->, >=Stealth] (1,0,-1) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \ifnum#1=3
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, <->, >=Stealth] (0,0,0) -- (0,0,-1);
+    \draw[black, thick, <->, >=Stealth] (0,1,0) -- (0,1,-1);
+    \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,0,-1);
+    \draw[black, thick, <->, >=Stealth] (1,1,0) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 3 Qubit system}{#1 is not a valid Qubit in a 3 Qubit system}
+  \fi
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionPauliZQQQ}[1]{%
+  \ifnum#1=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (1,0,0);
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,1,0) -- (1,1,0);
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,-1) -- (1,0,-1);
+      \draw[black, thick, -{Circle[open]}, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+  \else
+  \ifnum#1=2
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (0,1,0);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (1,0,0) -- (1,1,0);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,-1) -- (0,1,-1);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (1,0,-1) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \ifnum#1=3
+  \begin{tikzpicture}[scale=\qcmScale]
+    \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+    \qcmWireframe{3}
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,0,0) -- (0,0,-1);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (0,1,0) -- (0,1,-1);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (1,0,0) -- (1,0,-1);
+    \draw[black, thick, -{Circle[open]}, >=Stealth] (1,1,0) -- (1,1,-1);
+  \end{tikzpicture}
+  \else
+  \PackageError{quantumcube}{#1 is not a valid Qubit in a 3 Qubit system}{#1 is not a valid Qubit in a 3 Qubit system}
+  \fi
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionCNOTQQQ}[2]{%
+  \ifnum#1=1
+    \ifnum#2=2
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,1,0);
+      \draw[black, thick, <->, >=Stealth] (1,0,-1) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \ifnum#2=3
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (1,0,0) -- (1,0,-1);
+      \draw[black, thick, <->, >=Stealth] (1,1,0) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \PackageError{quantumcube}{#1 #2 is not a valid Qubit in a 3 Qubit system}{#1 #2 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \ifnum#1=2
+    \ifnum#2=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (0,1,0) -- (1,1,0);
+      \draw[black, thick, <->, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \ifnum#2=3
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (0,1,0) -- (0,1,-1);
+      \draw[black, thick, <->, >=Stealth] (1,1,0) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \PackageError{quantumcube}{#1 #2 is not a valid Qubit in a 3 Qubit system}{#1 #2 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \ifnum#1=3
+    \ifnum#2=1
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (0,0,-1) -- (1,0,-1);
+      \draw[black, thick, <->, >=Stealth] (0,1,-1) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \ifnum#2=2
+    \begin{tikzpicture}[scale=\qcmScale]
+      \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+      \qcmWireframe{3}
+      \draw[black, thick, <->, >=Stealth] (0,0,-1) -- (0,1,-1);
+      \draw[black, thick, <->, >=Stealth] (1,0,-1) -- (1,1,-1);
+    \end{tikzpicture}
+    \else
+    \PackageError{quantumcube}{#1 #2 is not a valid Qubit in a 3 Qubit system}{#1 #2 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \PackageError{quantumcube}{#1 #2 is not a valid Qubit in a 3 Qubit system}{#1 #2 is not a valid Qubit in a 3 Qubit system}
+  \fi
+  \fi
+  \fi
+}
+
+\newcommand{\qcmTransitionToffolieQQQ}[3]{%
+  \ifnum#1=1
+    \ifnum#2=2
+      \ifnum#3=3
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (1,1,0) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \ifnum#2=3
+      \ifnum#3=2
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (1,0,-1) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \ifnum#1=2
+    \ifnum#2=1
+      \ifnum#3=3
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (1,1,0) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \ifnum#2=3
+      \ifnum#3=1
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (0,1,-1) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \ifnum#1=3
+    \ifnum#2=1
+      \ifnum#3=2
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (1,0,-1) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \ifnum#2=2
+      \ifnum#3=1
+      \begin{tikzpicture}[scale=\qcmScale]
+        \draw[white] (-0.37,-0.3, 0) rectangle (1.37, 1.3, 0);
+        \qcmWireframe{3}
+        \draw[black, thick, <->, >=Stealth] (0,1,-1) -- (1,1,-1);
+      \end{tikzpicture}
+      \else
+      \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+      \fi
+    \else
+    \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+    \fi
+    \fi
+  \else
+  \PackageError{quantumcube}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}{#1 #2 #3 is not a valid Qubit in a 3 Qubit system}
+  \fi
+  \fi
+  \fi
+}
+
+%endregion -----------
