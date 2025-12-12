@@ -1,24 +1,60 @@
 \newcommand{\qcmxRenderCNotQQ}[1]{
-  \if#1\QCMXINTERNALCONSTANTXY
+  \def\QCMXINTERNALqubits{#1}
+  \ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTXY
     \QCMXINTERNALrenderCNotQQxy
-  \else\if#1\QCMXINTRENALCONSTANTYX
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTYX
     \QCMXINTERNALrenderCNotQQyx
-  \else\if#1\QCMXINTRENALCONSTANTXZ
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTXZ
     \QCMXINTERNALrenderCNotQQxz
-  \else\if#1\QCMXINTRENALCONSTANTZX
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTZX
     \QCMXINTERNALrenderCNotQQzx
-  \else\if#1\QCMXINTRENALCONSTANTYZ
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTYZ
     \QCMXINTERNALrenderCNotQQyz
-  \else\if#1\QCMXINTRENALCONSTANTZY
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTZY
     \QCMXINTERNALrenderCNotQQzy
   \else
     \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTYX, \QCMXINTERNALCONSTANTXZ, \QCMXINTERNALCONSTANTZX, \QCMXINTERNALCONSTANTYZ, \QCMXINTERNALCONSTANTZY]}
   \fi\fi\fi\fi\fi\fi
 }
 
-\newcommand{\QCMXINTERNALrenderCNotQQxy}{}
-\newcommand{\QCMXINTERNALrenderCNotQQyx}{}
-\newcommand{\QCMXINTERNALrenderCNotQQxz}{}
-\newcommand{\QCMXINTERNALrenderCNotQQzx}{}
-\newcommand{\QCMXINTERNALrenderCNotQQyz}{}
-\newcommand{\QCMXINTERNALrenderCNotQQzy}{}
+\newcommand{\QCMXINTERNALrenderCNotQQxy}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQyx}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0); 
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQxz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQzx}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQyz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQzy}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
