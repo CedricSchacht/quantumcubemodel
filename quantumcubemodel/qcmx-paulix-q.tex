@@ -1,0 +1,23 @@
+\newcommand{\qcmxRenderPauliXQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTX
+    \QCMXINTERNALrenderPauliXQx
+  \else\if#1\QCMXINTERNALCONSTANTY
+    \QCMXINTERNALrenderPauliXQy
+  \else\if#1\QCMXINTERNALCONSTANTZ
+    \QCMXINTERNALrenderPauliXQz
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}
+  \fi\fi\fi
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQx}{
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQy}{
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQz}{
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+}

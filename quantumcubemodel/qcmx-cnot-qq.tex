@@ -1,0 +1,24 @@
+\newcommand{\qcmxRenderCNotQQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTXY
+    \QCMXINTERNALrenderCNotQQxy
+  \else\if#1\QCMXINTRENALCONSTANTYX
+    \QCMXINTERNALrenderCNotQQyx
+  \else\if#1\QCMXINTRENALCONSTANTXZ
+    \QCMXINTERNALrenderCNotQQxz
+  \else\if#1\QCMXINTRENALCONSTANTZX
+    \QCMXINTERNALrenderCNotQQzx
+  \else\if#1\QCMXINTRENALCONSTANTYZ
+    \QCMXINTERNALrenderCNotQQyz
+  \else\if#1\QCMXINTRENALCONSTANTZY
+    \QCMXINTERNALrenderCNotQQzy
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTYX, \QCMXINTERNALCONSTANTXZ, \QCMXINTERNALCONSTANTZX, \QCMXINTERNALCONSTANTYZ, \QCMXINTERNALCONSTANTZY]}
+  \fi\fi\fi\fi\fi\fi
+}
+
+\newcommand{\QCMXINTERNALrenderCNotQQxy}{}
+\newcommand{\QCMXINTERNALrenderCNotQQyx}{}
+\newcommand{\QCMXINTERNALrenderCNotQQxz}{}
+\newcommand{\QCMXINTERNALrenderCNotQQzx}{}
+\newcommand{\QCMXINTERNALrenderCNotQQyz}{}
+\newcommand{\QCMXINTERNALrenderCNotQQzy}{}
