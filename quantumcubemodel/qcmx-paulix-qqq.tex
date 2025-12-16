@@ -1,0 +1,90 @@
+\newcommand{\qcmxRenderPauliXQQQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTX
+    \QCMXINTERNALrenderPauliXQQQx
+  \else\if#1\QCMXINTERNALCONSTANTY
+    \QCMXINTERNALrenderPauliXQQQy
+  \else\if#1\QCMXINTERNALCONSTANTZ
+    \QCMXINTERNALrenderPauliXQQQz
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}
+  \fi\fi\fi
+}
+
+%region PauliX on x
+\newcommand{\QCMXINTERNALrenderPauliXQQQx}[0]{
+  \ifx\qcmxOrientationQQQ\QCMXINTERNALCONSTANTXYZ
+    \QCMXINTERNALrenderPauliXQQQxINxyz
+  \else
+    \PackageError{quantumcubemodel}{"\qcmxOrientationQQQ" is not in [\QCMXINTERNALCONSTANTXYZ]}
+  \fi
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQQQxINxyz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+}
+
+
+%region PauliX on y
+\newcommand{\QCMXINTERNALrenderPauliXQQQy}[0]{
+  \ifx\qcmxOrientationQQQ\QCMXINTERNALCONSTANTXYZ
+    \QCMXINTERNALrenderPauliXQQQyINxyz
+  \else
+    \PackageError{quantumcubemodel}{"\qcmxOrientationQQQ" is not in [\QCMXINTERNALCONSTANTXYZ]}
+  \fi
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQQQyINxyz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+%region PauliX on z
+\newcommand{\QCMXINTERNALrenderPauliXQQQz}[0]{
+  \ifx\qcmxOrientationQQQ\QCMXINTERNALCONSTANTXYZ
+    \QCMXINTERNALrenderPauliXQQQzINxyz
+  \else
+    \PackageError{quantumcubemodel}{"\qcmxOrientationQQQ" is not in [\QCMXINTERNALCONSTANTXYZ]}
+  \fi
+}
+
+\newcommand{\QCMXINTERNALrenderPauliXQQQzINxyz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}

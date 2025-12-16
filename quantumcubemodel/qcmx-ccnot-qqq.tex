@@ -1,0 +1,138 @@
+\newcommand{\qcmxRenderCCNotQQQ}[1]{
+  \def\QCMXINTERNALqubits{#1}
+  \ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTXYZ
+    \QCMXINTERNALrenderCCNotQQQxyz
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTYXZ
+    \QCMXINTERNALrenderCCNotQQQyxz
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTXZY
+    \QCMXINTERNALrenderCCNotQQQxzy
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTZXY
+    \QCMXINTERNALrenderCCNotQQQzxy
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTYZX
+    \QCMXINTERNALrenderCCNotQQQyzx
+  \else\ifx\QCMXINTERNALqubits\QCMXINTERNALCONSTANTZYX
+    \QCMXINTERNALrenderCCNotQQQzyx
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTXYZ, \QCMXINTERNALCONSTANTYXZ, \QCMXINTERNALCONSTANTXZY, \QCMXINTERNALCONSTANTZXY, \QCMXINTERNALCONSTANTYZX, \QCMXINTERNALCONSTANTZYX]}
+  \fi\fi\fi\fi\fi\fi
+}
+
+
+%region CCNot xyz
+\newcommand{\QCMXINTERNALrenderCCNotQQQxyz}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[black, line width=4pt, <->, >=Stealth](5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+
+%region CCNot yxz
+\newcommand{\QCMXINTERNALrenderCCNotQQQyxz}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[black, line width=4pt, <->, >=Stealth](5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+
+%region CCNot on xzy
+\newcommand{\QCMXINTERNALrenderCCNotQQQxzy}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);  
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+
+%region CCNot on zxy
+\newcommand{\QCMXINTERNALrenderCCNotQQQzxy}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);  
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[black, line width=4pt, <->, >=Stealth] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+
+%region CCNot on yzx
+\newcommand{\QCMXINTERNALrenderCCNotQQQyzx}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);  
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
+
+
+%region CCNot on zyx
+\newcommand{\QCMXINTERNALrenderCCNotQQQzyx}[0]{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);  
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  
+  \draw[black, line width=4pt, <->, >=Stealth] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+}
