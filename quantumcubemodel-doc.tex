@@ -1,24 +1,19 @@
 \documentclass{article}
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{hyperref}
-\usepackage{subcaption}
 \usepackage{quantumcubemodel}
 \usepackage{listings}
 \usepackage[backend=biber, style=authortitle]{biblatex}
 \addbibresource{quantumcubemodel-bib.bib}
 \usepackage{parskip}
-\usepackage{pdflscape}
+\usepackage{standalone}
+\standaloneconfig{mode=buildnew}
 
 \usepackage{adjustbox}
 
 \title{Quantum Cube Model LaTeX Package (v0.2.0)}
 \author{Cedric Schacht \\ \texttt{cedric.schacht@dhbw-stuttgart.de}}
 \date{\today}
-
-\newcommand{\inputexample}[2][0.8\textwidth]{
-  \lstinputlisting{examples/#2.tex}
-  \input{examples/#2.tex}
-}
 
 \begin{document}
 \maketitle
@@ -81,7 +76,10 @@ SOFTWARE.
 
 \section*{Package options}
 To change the appearence of your diagramms you can set the main color as follows:
-\inputexample{example-change-main-color}
+\lstinputlisting{examples/example-change-main-color.tex}
+\begin{center}
+  \includegraphics{examples/out/example-change-main-color.pdf}
+\end{center}
 
 \clearpage
 \section*{Provided commands}
@@ -125,14 +123,47 @@ for the state $-\ket{+}$ this results in:
 \end{verbatim}
 
 \clearpage
-\section*{Examples}
-\inputexample{example-rendering-one-qubit}
-\inputexample{example-rendering-one-qubit-arbitrary-states}
+\section*{One qubit states}
+\lstinputlisting{examples/one-qubit-ket-0.tex}
+\begin{center}
+  \input{examples/one-qubit-ket-0.tex}
+\end{center}
 
-\clearpage
-\inputexample[\textwidth]{example-rendering-phi-times-psi-equals-phipsi}
+\lstinputlisting{examples/one-qubit-ket-1.tex}
+\begin{center}
+  \input{examples/one-qubit-ket-1.tex}
+\end{center}
 
+\lstinputlisting{examples/one-qubit-ket-+.tex}
+\begin{center}
+  \input{examples/one-qubit-ket-+.tex}
+\end{center}
 
+\section*{Amplitudes \& Phases}
+\lstinputlisting{examples/one-qubit-ket-amplitudes.tex}
+\begin{center}
+  \input{examples/one-qubit-ket-amplitudes.tex}
+\end{center}
 
-\input{examples/example-redering-one-qubit-hadamard.tex}
+\lstinputlisting{examples/one-qubit-ket-phase.tex}
+\begin{center}
+  \input{examples/one-qubit-ket-phase.tex}
+\end{center}
+
+\pagebreak
+\section*{Two qubit state}
+\lstinputlisting{examples/two-qubit-state.tex}
+\begin{center}
+  \input{examples/two-qubit-state.tex}
+\end{center}
+
+\pagebreak
+\section*{Two qubit state from two one qubit state}
+\lstinputlisting{examples/example-rendering-phi-times-psi-equals-phipsi.tex}
+\begin{adjustbox}{width=\textwidth}
+  \hspace{-17cm}
+  \input{examples/example-rendering-phi-times-psi-equals-phipsi.tex}
+  \hspace{8cm}
+\end{adjustbox}
+
 \end{document}
