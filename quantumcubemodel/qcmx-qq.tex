@@ -20,7 +20,6 @@
   \qcmxOI[0]{0}
   \qcmxIO[0]{0}
   \qcmxII[0]{0}
-  \def\qcmxOrientationQQ{xy}
 }
 
 \newcommand{\qcmxRenderQQ}[0]{
@@ -31,8 +30,7 @@
   \else\ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTYZ
     \QCMXINTERNALrenderQQyz
   \else
-    \PackageError{quantumcubemodel}{stick to xy orientation for no, others might follow in later versions.}
-    \PackageError{quantumcubemodel}{"\qcmxOrientationQ" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}[use \verb|\def\qcmxOrientationQ{x}| to fix this.]
+    \PackageError{quantumcubemodel}{"\qcmxOrientationQQ" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTXZ, \QCMXINTERNALCONSTANTYZ]}
   \fi\fi\fi
 }
 

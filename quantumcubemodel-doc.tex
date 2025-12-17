@@ -2,6 +2,8 @@
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{quantumcubemodel}
+\usepackage{quantikz}
+
 \usepackage{listings}
 \usepackage[backend=biber, style=authortitle]{biblatex}
 \addbibresource{quantumcubemodel-bib.bib}
@@ -158,12 +160,125 @@ for the state $-\ket{+}$ this results in:
 \end{center}
 
 \pagebreak
+\section*{Three qubit state}
+\lstinputlisting{examples/three-qubit-state.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-22cm}
+  \input{examples/three-qubit-state.tex}
+  \hspace{2cm}
+}
+
+\pagebreak
+\section*{Orientation and Positioning of qubits}
+\lstinputlisting{examples/orientation-of-qubits.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-22cm}
+  \input{examples/orientation-of-qubits.tex}
+  \hspace{2cm}
+}
+
+The same works for:
+\begin{lstlisting}
+  \def\qcmxOrientationQQ{xy}
+\end{lstlisting}
+Possible values are \lstinline|xy, xz, yz| to set the plane accordingly.
+
+And for future use: \lstinline|\def\qcmxOrientationQQQ{xyz}| is reserved, but there are no other valid values except \lstinline|xyz| for now.
+
+As you can see, the qcmx environment exposes a 3d Tikz canvas,
+there for you are free to use commands like \lstinline|\node at|\dots{} to add descriptive markings.
+
+\pagebreak
 \section*{Two qubit state from two one qubit state}
 \lstinputlisting{examples/example-rendering-phi-times-psi-equals-phipsi.tex}
-\begin{adjustbox}{width=\textwidth}
+\resizebox{\textwidth}{!}{
   \hspace{-17cm}
   \input{examples/example-rendering-phi-times-psi-equals-phipsi.tex}
   \hspace{8cm}
-\end{adjustbox}
+}
+
+\pagebreak
+\section*{Transformation diagramms}
+\lstinputlisting{examples/one-qubit-transformations.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-20cm}
+  \input{examples/one-qubit-transformations.tex}
+  \hspace{5cm}
+}
+
+\pagebreak
+\lstinputlisting{examples/multi-qubit-transformation-hadamard.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-20cm}
+  \input{examples/multi-qubit-transformation-hadamard.tex}
+  \hspace{5cm}
+}
+
+As you can see the orientation of the Hadamard Transform is set by two parts,
+first the value of \lstinline|\qcmxOrientationQQ| is used to determine the plane,
+then the argument of \lstinline|\qcmxRenderHadamardQQ| is used to select the qubit that is transformed.
+
+The same is true for the pauli gates (x, y, z) as well as the three dimensional cube,
+even though \lstinline|\qcmxOrientationQQQ| can only be \lstinline|xyz| for now.
+
+\pagebreak
+\section*{Multi qubit transformations}
+\lstinputlisting{examples/cnot-on-three-qubits.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-20cm}
+  \input{examples/cnot-on-three-qubits.tex}
+  \hspace{5cm}
+}
+
+Additionaly there is the CCNot (Toffolie) gate,
+that can be rendered with the \lstinline|\qcmxRenderCCNotQQQ|.
+Obviously CNot and CCNot are only available in systems with at least two (or three) qubits respectively.
+
+\pagebreak
+\section*{Measurement of Qubits}
+\lstinputlisting{examples/measure-qubit.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-20cm}
+  \input{examples/measure-qubit.tex}
+  \hspace{5cm}
+}
+
+\pagebreak
+\lstinputlisting{examples/measure-one-of-two-qubits.tex}
+\resizebox{\textwidth}{!}{
+  \hspace{-20cm}
+  \input{examples/measure-one-of-two-qubits.tex}
+  \hspace{5cm}
+}
+
+For systems with only partial measurements the \lstinline|\qcmxOrientationQQ| and  \lstinline|\qcmxOrientationQQQ|
+values are used to determin the unmeasured qubits.
+
+Additionaly it is possible to measure more than one qubit at the same time.
+For \lstinline|\qcmxRenderMeasureQQ| it is possible to choose from \lstinline|x, y, z, xy, xz, yz|.
+While for \lstinline|\qcmxRenderMeasureQQQ| \lstinline|xyz| is also available.
+
+
+\pagebreak
+\section*{Example: Teleportation Algorithm}
+\begin{center}
+  \begin{quantikz}
+    \lstick{$\ket{\psi}$} & \qw      & \qw       & \ctrl{1} & \gate{H} & \meter{} & \cw        & \cwbend{2} \\
+    \lstick{Bob: $\ket{0}$}    & \qw      & \targ{}   & \targ{}  & \qw      & \meter{} & \cwbend{1} \\
+    \lstick{Alice: $\ket{0}$}    & \gate{H} & \ctrl{-1} & \qw      & \qw      & \qw      & \gate{X}   & \gate{Z}   & \qw \rstick{$\ket{\psi}$}
+  \end{quantikz}
+
+  \resizebox{0.95\textwidth}{!}{
+    \hspace{-20cm}
+    \input{examples/teleportation.tex}
+    \hspace{5cm}
+  }
+\end{center}
+
+\pagebreak
+\lstinputlisting{examples/teleportation.tex}
 
 \end{document}
+
+TODO:
+* OffsetZ impl

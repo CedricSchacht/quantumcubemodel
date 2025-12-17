@@ -1,0 +1,265 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \node at (25,8,0) {\Huge \textbf{State Preparation}};
+    
+    \node at (-4,2,0) {\Huge$\ket{\phi}$};
+    \node at (-4,-10,0) {\Huge$\ket{00}$};
+
+    \def\qcmxOrientationQ{z}
+    \def\qcmxOffsetX{3}
+    \def\qcmxOffsetY{0}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+    \node at (6,-2,0) {\Huge$\otimes$};
+
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-15}
+    \qcmxOO{1}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \def\qcmxOffsetX{15}
+    \def\qcmxOffsetY{-9}
+    \qcmxRenderHadamardQQ{x}
+    \def\qcmxOffsetY{-16}
+    \qcmxRenderCNotQQ{xy}
+
+    \def\qcmxOffsetX{28}
+    \def\qcmxOffsetY{0}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+    \node at (31,-2,0) {\Huge$\otimes$};
+
+    \def\qcmxOffsetX{25}
+    \def\qcmxOffsetY{-15}
+    \qcmxOO{0.71}
+    \qcmxII{0.71}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \node at (40,-7,0) {\Huge$=$};
+    \def\qcmxOffsetX{45}
+    \def\qcmxOffsetY{-12}
+    \qcmxOOO{0.58}
+    \qcmxOOI[35]{0.4}
+    \qcmxIIO{0.58}
+    \qcmxIII[35]{0.4}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+
+
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-41}
+    \qcmxOOO{0.58}
+    \qcmxOOI[35]{0.4}
+    \qcmxIIO{0.58}
+    \qcmxIII[35]{0.4}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+    \node at (22,-23,0) {\Huge \textbf{Entangeling $\ket{\phi}$ with EPR}};
+    \def\qcmxOffsetX{18}
+    \def\qcmxOffsetY{-38}
+    \qcmxRenderCNotQQQ{zy}
+
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{-41}
+    \qcmxOOO{0.58}
+    \qcmxOII[35]{0.4}
+    \qcmxIIO{0.58}
+    \qcmxIOI[35]{0.4}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+    \node at (51,-23,0) {\Huge \textbf{Hadamard transform $z$}};
+    \def\qcmxOffsetX{48}
+    \def\qcmxOffsetY{-38}
+    \qcmxRenderHadamardQQQ{z}
+
+    \def\qcmxOffsetX{59}
+    \def\qcmxOffsetY{-41}
+    \qcmxOOO{0.41}
+    \qcmxOOI{0.41}
+    \qcmxOIO[35]{0.28}
+    \qcmxOII[180+35]{0.28}
+    \qcmxIOO[35]{0.28}
+    \qcmxIOI[180+35]{0.28}
+    \qcmxIIO{0.41}
+    \qcmxIII{0.41}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+
+    \node at (22,-50,0) {\Huge \textbf{Measureing x and z}};
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-68}
+    \qcmxOOO{0.41}
+    \qcmxOOI{0.41}
+    \qcmxOIO[35]{0.28}
+    \qcmxOII[180+35]{0.28}
+    \qcmxIOO[35]{0.28}
+    \qcmxIOI[180+35]{0.28}
+    \qcmxIIO{0.41}
+    \qcmxIII{0.41}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+    \def\qcmxOffsetX{18}
+    \def\qcmxOffsetY{-65}
+    \qcmxRenderMeasureQQQ{xz}
+
+    \def\qcmxOffsetX{32}
+    \def\qcmxOffsetY{-68}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{42}
+    \def\qcmxOffsetY{-68}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    
+    \qcmxI{0.81}
+    \qcmxO[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{37}
+    \def\qcmxOffsetY{-63}
+    \def\qcmxOffsetZ{-10}
+    \def\qcmxOrientationQ{y}
+    
+    \qcmxO{0.81}
+    \qcmxI[180+35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{47}
+    \def\qcmxOffsetY{-63}
+    \def\qcmxOffsetZ{-10}
+    \def\qcmxOrientationQ{y}
+    
+    \qcmxI{0.81}
+    \qcmxO[180+35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \draw[black, ->, thick, >=Stealth] (30,-68,0) -- (10,-75,0) 
+        node[midway, above, sloped] {\Huge Result: $\ket{00}$};
+
+    \draw[black, ->, thick, >=Stealth] (37,-65,0) -- (30,-75,0) 
+        node[midway, below, sloped] {\Huge Result: $\ket{10}$};
+
+    \draw[black, ->, thick, >=Stealth] (43,-71,0) -- (50,-75,0) 
+        node[midway, above, sloped] {\Huge Result: $\ket{01}$};
+
+    \draw[black, ->, thick, >=Stealth] (47,-65,0) -- (70,-75,0) 
+        node[midway, above, sloped] {\Huge Result: $\ket{11}$};
+
+    \node[rotate=90] at (0,-95,0) {\Huge \textbf{Fixing Error}};
+
+    \def\qcmxOffsetX{10}
+    \def\qcmxOffsetY{-88}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{-88}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[180+35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{-98}
+    \qcmxRenderPauliZQ{y}
+
+    \def\qcmxOffsetX{50}
+    \def\qcmxOffsetY{-88}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxI{0.81}
+    \qcmxO[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{50}
+    \def\qcmxOffsetY{-98}
+    \qcmxRenderPauliXQ{y}
+    
+    \def\qcmxOffsetX{70}
+    \def\qcmxOffsetY{-88}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxI{0.81}
+    \qcmxO[180+35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{69}
+    \def\qcmxOffsetY{-98}
+    \qcmxRenderPauliXQ{y}
+    \def\qcmxOffsetX{71}
+    \def\qcmxOffsetY{-98}
+    \qcmxRenderPauliZQ{y}
+
+
+    \def\qcmxOffsetX{10}
+    \def\qcmxOffsetY{-113}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (20,-108,0) {\Huge$=$};
+
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{-113}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (40,-108,0) {\Huge$=$};
+
+    \def\qcmxOffsetX{50}
+    \def\qcmxOffsetY{-113}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (60,-108,0) {\Huge$=$};
+
+    \def\qcmxOffsetX{70}
+    \def\qcmxOffsetY{-113}
+    \def\qcmxOffsetZ{0}
+    \def\qcmxOrientationQ{y}
+    \qcmxO{0.81}
+    \qcmxI[35]{0.57}
+    \qcmxRenderQ
+    \qcmxClearQ
+\end{qcmx}
+\end{document}

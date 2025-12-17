@@ -1,0 +1,31 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \qcmxO{0.71}
+    \qcmxI{0.71}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{15}
+    \qcmxRenderMeasureQ{x}
+
+    \draw[black, ->, thick, >=Stealth] (21,1,0) -- (28,4,0) 
+        node[midway, above, sloped] {\Huge Result: $\ket{0}$};
+
+    \draw[black, ->, thick, >=Stealth] (21,-1,0) -- (28,-4,0) 
+        node[midway, above, sloped] {\Huge Result: $\ket{1}$};
+        
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{5}
+    \qcmxO{1}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{30}
+    \def\qcmxOffsetY{-5}
+    \qcmxI{1}
+    \qcmxRenderQ
+    \qcmxClearQ
+\end{qcmx}
+\end{document}

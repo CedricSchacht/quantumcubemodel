@@ -1,0 +1,26 @@
+\newcommand{\qcmxRenderMeasureQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTX
+    \QCMXINTERNALrenderMeasureQx
+  \else\if#1\QCMXINTERNALCONSTANTY
+    \QCMXINTERNALrenderMeasureQy
+  \else\if#1\QCMXINTERNALCONSTANTZ
+    \QCMXINTERNALrenderMeasureQz
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}
+  \fi\fi\fi
+}
+
+\newcommand{\QCMXINTERNALrenderMeasureQx}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
+  \draw[red, line width=2mm] (\qcmxOffsetX+2.5, \qcmxOffsetY+1.5, 0) -- (\qcmxOffsetX+2.5, \qcmxOffsetY-1.5, 0);
+}
+
+\newcommand{\QCMXINTERNALrenderMeasureQy}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[red, line width=2mm] (\qcmxOffsetX+1.5, \qcmxOffsetY+2.5, 0) -- (\qcmxOffsetX-1.5, \qcmxOffsetY+2.5, 0);
+}
+
+\newcommand{\QCMXINTERNALrenderMeasureQz}{
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
+  \draw[red, line width=2mm] (\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5) -- (\qcmxOffsetX-0.5, \qcmxOffsetY+0.5, -2.5);
+}
