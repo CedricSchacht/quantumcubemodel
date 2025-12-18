@@ -11,16 +11,16 @@
 }
 
 \newcommand{\QCMXINTERNALrenderPauliZQx}{
-  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \node at (5+\qcmxOffsetX-0.26, \qcmxOffsetY-0.03, 0) {-};
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \node at (5+\qcmxOffsetX-0.26, \qcmxOffsetY-0.03, \qcmxOffsetZ) {-};
 }
 
 \newcommand{\QCMXINTERNALrenderPauliZQy}{
-  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \node at (\qcmxOffsetX+0.01, 5+\qcmxOffsetY-0.3, 0) {-};
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \node at (\qcmxOffsetX+0.01, 5+\qcmxOffsetY-0.3, \qcmxOffsetZ) {-};
 }
 
 \newcommand{\QCMXINTERNALrenderPauliZQz}{
-  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \node at (\qcmxOffsetX-0.18, \qcmxOffsetY-0.22, -5) {-};
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \node at (\qcmxOffsetX-0.18, \qcmxOffsetY-0.22, -5+\qcmxOffsetZ) {-};
 }

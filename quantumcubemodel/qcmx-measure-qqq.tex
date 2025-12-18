@@ -23,201 +23,201 @@
 
 %region Measure on x
 \newcommand{\QCMXINTERNALrenderMeasureQQQx}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
   
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5) 
-      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5) 
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5)
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 
 %region Measure on y
 \newcommand{\QCMXINTERNALrenderMeasureQQQy}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
   
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5) 
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5)
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 %region Measure on z
 \newcommand{\QCMXINTERNALrenderMeasureQQQz}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
   
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5)
-      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 %region Measure on xy
 \newcommand{\QCMXINTERNALrenderMeasureQQQxy}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
   
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5) 
-      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5) 
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5)
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5) 
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5)
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 %region Measure on xz
 \newcommand{\QCMXINTERNALrenderMeasureQQQxz}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5) 
-      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5) 
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5)
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
   
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5)
-      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 
 %region Measure on yz
 \newcommand{\QCMXINTERNALrenderMeasureQQQyz}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5) 
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5)
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5)
-      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ) 
       -- cycle;
 }
 
 
 %region Measure on xyz
 \newcommand{\QCMXINTERNALrenderMeasureQQQxyz}[0]{
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
 
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
   
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5);
-  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, 0) -- (5+\qcmxOffsetX, \qcmxOffsetY, 0);
-  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, 0) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, 0);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \draw[gray, ultra thick] (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5) 
-      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5) 
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5)
-      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, 0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, 5+\qcmxOffsetY+0.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX+2.5, \qcmxOffsetY-0.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5) 
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5)
-      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ) 
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, -5-0.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, \qcmxOffsetY+2.5, 0.5+\qcmxOffsetZ) 
       -- cycle;
 
-  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5) 
-      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5)
-      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5) 
+  \draw[red, fill=red!50, fill opacity=0.5, line width=2mm] (\qcmxOffsetX-0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, \qcmxOffsetY-0.5, -2.5+\qcmxOffsetZ) 
+      -- (5+\qcmxOffsetX+0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ)
+      -- (\qcmxOffsetX-0.5, 5+\qcmxOffsetY+0.5, -2.5+\qcmxOffsetZ) 
       -- cycle;
 }

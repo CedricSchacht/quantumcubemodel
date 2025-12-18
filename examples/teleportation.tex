@@ -7,6 +7,8 @@
     \node at (-4,2,0) {\Huge$\ket{\phi}$};
     \node at (-4,-10,0) {\Huge$\ket{00}$};
 
+    \node[rotate=45] at (5,3,1.5) {\Huge $\Leftrightarrow$ Alice};
+
     \def\qcmxOrientationQ{z}
     \def\qcmxOffsetX{3}
     \def\qcmxOffsetY{0}
@@ -16,6 +18,8 @@
     \qcmxClearQ
     \node at (6,-2,0) {\Huge$\otimes$};
 
+    \node at (5,-14,0) {\Huge $\Leftrightarrow$ Alice};
+    \node[rotate=-90] at (1,-10,0) {\Huge $\Leftrightarrow$ Bob};
     \def\qcmxOffsetX{0}
     \def\qcmxOffsetY{-15}
     \qcmxOO{1}
@@ -111,7 +115,7 @@
     \qcmxRenderQQQ
     \qcmxClearQQQ
 
-    \def\qcmxOffsetX{18}
+    \def\qcmxOffsetX{20}
     \def\qcmxOffsetY{-65}
     \qcmxRenderMeasureQQQ{xz}
 
@@ -134,8 +138,8 @@
     \qcmxRenderQ
     \qcmxClearQ
 
-    \def\qcmxOffsetX{37}
-    \def\qcmxOffsetY{-63}
+    \def\qcmxOffsetX{32}
+    \def\qcmxOffsetY{-68}
     \def\qcmxOffsetZ{-10}
     \def\qcmxOrientationQ{y}
     
@@ -144,8 +148,8 @@
     \qcmxRenderQ
     \qcmxClearQ
 
-    \def\qcmxOffsetX{47}
-    \def\qcmxOffsetY{-63}
+    \def\qcmxOffsetX{42}
+    \def\qcmxOffsetY{-68}
     \def\qcmxOffsetZ{-10}
     \def\qcmxOrientationQ{y}
     
@@ -154,16 +158,16 @@
     \qcmxRenderQ
     \qcmxClearQ
 
-    \draw[black, ->, thick, >=Stealth] (30,-68,0) -- (10,-75,0) 
+    \draw[black, ->, thick, >=Stealth] (32,-70,0) -- (10,-75,0) 
         node[midway, above, sloped] {\Huge Result: $\ket{00}$};
 
-    \draw[black, ->, thick, >=Stealth] (37,-65,0) -- (30,-75,0) 
+    \draw[black, ->, thick, >=Stealth] (32,-70,-10) -- (30,-75,0) 
         node[midway, below, sloped] {\Huge Result: $\ket{10}$};
 
-    \draw[black, ->, thick, >=Stealth] (43,-71,0) -- (50,-75,0) 
+    \draw[black, ->, thick, >=Stealth] (42,-70,0) -- (50,-75,0) 
         node[midway, above, sloped] {\Huge Result: $\ket{01}$};
 
-    \draw[black, ->, thick, >=Stealth] (47,-65,0) -- (70,-75,0) 
+    \draw[black, ->, thick, >=Stealth] (42,-70,-10) -- (70,-75,0) 
         node[midway, above, sloped] {\Huge Result: $\ket{11}$};
 
     \node[rotate=90] at (0,-95,0) {\Huge \textbf{Fixing Error}};

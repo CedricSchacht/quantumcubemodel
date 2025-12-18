@@ -116,13 +116,77 @@ You have to set the amplitudes befor calling the corresponding render command.
 
 Each of theses commands gives you an optional parameter to set a phase (in degrees from 0 to 360) for the coefficient,
 for the state $-\ket{+}$ this results in:
-\begin{verbatim}
+\begin{lstlisting}
   \begin{qcmx}
     \qcmxO[180]{0.71}
     \qcmxI[180]{0.71}
     \qcmxRenderQ
   \end{qcmx}
-\end{verbatim}
+\end{lstlisting}
+
+If you want to include more than one qcm diagram in one figure,
+you can define \lstinline|\def\qcmxOffsetX{5}| to render the next one 5 units to the left.
+There are Offsets for X, Y and Z where the direction follows the tikz orientations.
+To reset the amplitudes and phases back to $0$,
+you can use the corresponding reset command:
+\begin{itemize}
+  \item \lstinline|\qcmxClearQ|
+  \item \lstinline|\qcmxClearQQ|
+  \item \lstinline|\qcmxClearQQQ|
+\end{itemize}
+
+Use \lstinline|\def\qcmxOrientationQ{y}| to set the orientation of a one qubit system to the y-axis.
+This needs to be defined befor using the render command.
+The commands for mutli qubit systems follow the scheme of Q, QQ and QQQ like the render commands.
+Possible values for orientations are:
+\begin{itemize}
+  \item in Systems with one qubit: \lstinline|x, y, z| (default: x)
+  \item in Systems with two qubits: \lstinline|xy, xz, yz| (default: xy)
+  \item in Systems with three qubits: \lstinline|xyz| (default: xyz)
+\end{itemize}
+
+\pagebreak
+For the transformations there are specialized render commands for the Pauli-Gates X, Y, Z
+as welle as the Hadamard transformation.
+In multi qubit systems additionaly there a renderers for CNot and CCNot (Toffolie).
+These follow a scheme like thie:
+\lstinline|\qcmxRender[OperationName][QubitCount]{qubits}| where \lstinline|[OperationName]| can be i.e. Hadamard,
+the \lstinline|[QubitCount]| can be QQ.
+
+To render the hadamard transformation on the x qubit in a system with two qubits this results in:
+\begin{lstlisting}
+  \qcmxRenderHadamardQQ{x}
+\end{lstlisting}
+Keep in mind that the \lstinline|\qcmxOrientationQQ| setting will be used to determine that the other qubit is y.
+\begin{lstlisting}
+  \def\qcmxOrientationQQ{xz}
+  \qcmxRenderHadamardQQ{x}
+\end{lstlisting}
+Results in a different diagram.
+
+The same is true for measurements,
+the only exceptions are CNot and CCNot, where ther is no single qubit (or two qubit for CCNot) version.
+
+\begin{itemize}
+  \item \lstinline|\qcmxRenderHadamardQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderHadamardQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderHadamardQQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliXQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliXQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliXQQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliYQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliYQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliYQQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliZQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliZQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderPauliZQQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderCNotQQ one of [xy,yx,xz,zx,yz,zy]|
+  \item \lstinline|\qcmxRenderCNotQQQ one of [xy,yx,xz,zx,yz,zy]|
+  \item \lstinline|\qcmxRenderCCNotQQQ one of [xyz,yxz,xzy,zxy,yzx,zyx]|
+  \item \lstinline|\qcmxRenderMeasureQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderMeasureQQ one of [x,y,z,xy,xz,yz]|
+  \item \lstinline|\qcmxRenderMeasureQQQ one of [x,y,z,xy,xz,yz,xyz]|
+\end{itemize}
 
 \clearpage
 \section*{One qubit states}
@@ -279,6 +343,3 @@ While for \lstinline|\qcmxRenderMeasureQQQ| \lstinline|xyz| is also available.
 \lstinputlisting{examples/teleportation.tex}
 
 \end{document}
-
-TODO:
-* OffsetZ impl
