@@ -1,0 +1,86 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{quantumcubemodel}[2025/12/09 v0.2.0 Quantum Cube Model Visualization]
+
+\RequirePackage{xcolor}
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{
+  family=qcmx,
+  prefix=qcmx@
+}
+
+\DeclareStringOption[teal]{maincolor}
+\AtBeginDocument{%
+  \colorlet{QCMXINTERNALmaincolor}{\qcmx@maincolor}
+}
+
+\ProcessKeyvalOptions*
+
+\RequirePackage{braket}
+\RequirePackage{tikz}
+\usetikzlibrary{3d, calc, arrows.meta}
+
+\def\QCMXINTERNALCONSTANTX{x}
+\def\QCMXINTERNALCONSTANTY{y}
+\def\QCMXINTERNALCONSTANTZ{z}
+
+\def\QCMXINTERNALCONSTANTXY{xy}
+\def\QCMXINTERNALCONSTANTXZ{xz}
+\def\QCMXINTERNALCONSTANTYZ{yz}
+
+\def\QCMXINTERNALCONSTANTYX{yx}
+\def\QCMXINTERNALCONSTANTZX{zx}
+\def\QCMXINTERNALCONSTANTZY{zy}
+
+\def\QCMXINTERNALCONSTANTXYZ{xyz}
+\def\QCMXINTERNALCONSTANTXZY{xzy}
+\def\QCMXINTERNALCONSTANTYXZ{yxz}
+\def\QCMXINTERNALCONSTANTYZX{yzx}
+\def\QCMXINTERNALCONSTANTZXY{zxy}
+\def\QCMXINTERNALCONSTANTZYX{zyx}
+
+\newenvironment{qcmx}{
+  % Define Offset for Rendering
+  \def\qcmxOffsetX{0}
+  \def\qcmxOffsetY{0}
+  \def\qcmxOffsetZ{0}
+
+  \def\qcmxOrientationQ{x}
+  \def\qcmxOrientationQQ{xy}
+  \def\qcmxOrientationQQQ{xyz}
+
+  \input{quantumcubemodel/qcmx-q.tex}
+  \input{quantumcubemodel/qcmx-qq.tex}
+  \input{quantumcubemodel/qcmx-qqq.tex}
+  \qcmxClearQ
+  \qcmxClearQQ
+  \qcmxClearQQQ
+
+  \input{quantumcubemodel/qcmx-hadamard-q.tex}
+  \input{quantumcubemodel/qcmx-hadamard-qq.tex}
+  \input{quantumcubemodel/qcmx-hadamard-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-paulix-q.tex}
+  \input{quantumcubemodel/qcmx-paulix-qq.tex}  
+  \input{quantumcubemodel/qcmx-paulix-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-pauliy-q.tex}
+  \input{quantumcubemodel/qcmx-pauliy-qq.tex}  
+  \input{quantumcubemodel/qcmx-pauliy-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-pauliz-q.tex}
+  \input{quantumcubemodel/qcmx-pauliz-qq.tex}
+  \input{quantumcubemodel/qcmx-pauliz-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-cnot-qq.tex}
+  \input{quantumcubemodel/qcmx-cnot-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-ccnot-qqq.tex}
+
+  \input{quantumcubemodel/qcmx-measure-q.tex}
+  \input{quantumcubemodel/qcmx-measure-qq.tex}
+  \input{quantumcubemodel/qcmx-measure-qqq.tex}
+  \begin{tikzpicture}
+}{
+  \end{tikzpicture}
+}

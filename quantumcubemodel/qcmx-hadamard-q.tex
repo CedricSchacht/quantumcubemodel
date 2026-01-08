@@ -1,0 +1,23 @@
+\newcommand{\qcmxRenderHadamardQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTX
+    \QCMXINTERNALrenderHadamardQx
+  \else\if#1\QCMXINTERNALCONSTANTY
+    \QCMXINTERNALrenderHadamardQy
+  \else\if#1\QCMXINTERNALCONSTANTZ
+    \QCMXINTERNALrenderHadamardQz
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}
+  \fi\fi\fi
+}
+
+\newcommand{\QCMXINTERNALrenderHadamardQx}{
+  \draw[black, line width=4pt, {Circle}-{Circle}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+}
+
+\newcommand{\QCMXINTERNALrenderHadamardQy}{
+  \draw[black, line width=4pt, {Circle}-{Circle}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+}
+
+\newcommand{\QCMXINTERNALrenderHadamardQz}{
+  \draw[black, line width=4pt, {Circle}-{Circle}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+}

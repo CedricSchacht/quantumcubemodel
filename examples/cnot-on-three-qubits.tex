@@ -1,0 +1,25 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \node at (24, 18, 0) {\Huge \textbf{
+        CNot on x (controll), y (target) in a system of three qubits
+    }};
+    \qcmxOOO{0.71}
+    \qcmxIOO[90]{0.5}
+    \qcmxIII[135]{0.5}
+    \qcmxRenderQQQ
+    \qcmxClearQQQ
+
+    \def\qcmxOffsetX{20}
+    \def\qcmxOffsetY{4}
+    \qcmxRenderCNotQQQ{xy} % x is the controll, y is the target
+    
+    \def\qcmxOffsetX{33}
+    \def\qcmxOffsetY{0}
+    \qcmxOOO{0.71}
+    \qcmxIIO[90]{0.5}
+    \qcmxIOI[135]{0.5}
+    \qcmxRenderQQQ
+\end{qcmx}
+\end{document}

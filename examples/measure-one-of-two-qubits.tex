@@ -1,0 +1,31 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \qcmxOO{0.5}
+    \qcmxOI{0.71}
+    \qcmxIO{0.5}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \def\qcmxOffsetX{15}
+    \def\qcmxOffsetY{3}
+    \qcmxRenderMeasureQQ{x}
+
+    \def\qcmxOffsetX{25}
+    \def\qcmxOffsetY{0}
+    \def\qcmxOrientationQ{y}
+
+    \node at (25, 13, 0) {\Huge with $p_0 = 0.75$};
+    \qcmxO{0.57}
+    \qcmxI{0.81}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (35, 13, 0) {\Huge with $p_1 = 0.25$};
+    \def\qcmxOffsetX{35}
+    \qcmxO{1}
+    \qcmxRenderQ
+    
+\end{qcmx}
+\end{document}

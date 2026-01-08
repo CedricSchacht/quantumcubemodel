@@ -1,0 +1,56 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \node at (10, 0, 0) {\Huge \textbf{Hadamard transformation on one qubit}};
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-3}
+    \qcmxO{1}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{15}
+    \qcmxRenderHadamardQ{x}
+    
+    \qcmxO{0.71}
+    \qcmxI{0.71}
+    \def\qcmxOffsetX{25}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (10,-10, 0) {\Huge \textbf{Pauli-X transformation on one qubit}};
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-13}
+    \qcmxO{1}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{15}
+    \qcmxRenderPauliXQ{x}
+    
+    \qcmxI{1}
+    \def\qcmxOffsetX{25}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \node at (10,-20, 0) {\Huge \textbf{Pauli-Y and Z transformation on one qubit}};
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-24}
+    \qcmxO{0.71}
+    \qcmxI{0.71}
+    \qcmxRenderQ
+    \qcmxClearQ
+
+    \def\qcmxOffsetX{15}
+    \def\qcmxOffsetY{-23}
+    \qcmxRenderPauliYQ{x}    
+    \def\qcmxOffsetY{-25}
+    \qcmxRenderPauliZQ{x}
+    
+    \def\qcmxOffsetY{-24}
+    \qcmxO[90]{0.71}
+    \qcmxI[90]{0.71}
+    \def\qcmxOffsetX{25}
+    \qcmxRenderQ
+\end{qcmx}
+\end{document}

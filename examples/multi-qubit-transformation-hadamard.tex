@@ -1,0 +1,58 @@
+\documentclass[preview, border=40px]{standalone}
+\usepackage{../quantumcubemodel}
+\begin{document}
+\begin{qcmx}
+    \node at (18, 13, 0) {\Huge \textbf{Hadamard on first of two qubits in xy plane}};
+    \qcmxOO{1}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \def\qcmxOffsetX{15}
+    \def\qcmxOffsetY{3}
+    \qcmxRenderHadamardQQ{x}
+    
+    \def\qcmxOffsetX{25}
+    \def\qcmxOffsetY{0}
+    \qcmxOO{0.71}
+    \qcmxIO{0.71}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \node at (18, -7, 0) {\Huge \textbf{Hadamard on second of two qubits in xy plane}};
+    \def\qcmxOffsetX{0}
+    \def\qcmxOffsetY{-20}
+    \qcmxOO{1}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \def\qcmxOffsetX{15}
+    \def\qcmxOffsetY{-17}
+    \qcmxRenderHadamardQQ{y}
+
+    
+    \def\qcmxOffsetX{25}
+    \def\qcmxOffsetY{-20}
+    \qcmxOO{0.71}
+    \qcmxOI{0.71}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \node at (18, -27, 0) {\Huge \textbf{Hadamard on first of two qubits in yz plane}};
+    \def\qcmxOrientationQQ{yz}
+    \def\qcmxOffsetX{5}
+    \def\qcmxOffsetY{-45}
+    \qcmxOO{1}
+    \qcmxRenderQQ
+    \qcmxClearQQ
+
+    \def\qcmxOffsetX{17}
+    \def\qcmxOffsetY{-40}
+    \qcmxRenderHadamardQQ{y}
+    
+    \def\qcmxOffsetX{27}
+    \def\qcmxOffsetY{-45}
+    \qcmxOO{0.71}
+    \qcmxIO{0.71}
+    \qcmxRenderQQ
+\end{qcmx}
+\end{document}

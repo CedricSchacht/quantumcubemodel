@@ -1,0 +1,131 @@
+\newcommand{\qcmxOOO}[2][0]{
+  \def\qcmxOOOamp{#2}
+  \def\qcmxOOOphase{#1}
+}
+\newcommand{\qcmxOOI}[2][0]{
+  \def\qcmxOOIamp{#2}
+  \def\qcmxOOIphase{#1}
+}
+\newcommand{\qcmxOIO}[2][0]{
+  \def\qcmxOIOamp{#2}
+  \def\qcmxOIOphase{#1}
+}
+\newcommand{\qcmxOII}[2][0]{
+  \def\qcmxOIIamp{#2}
+  \def\qcmxOIIphase{#1}
+}
+\newcommand{\qcmxIOO}[2][0]{
+  \def\qcmxIOOamp{#2}
+  \def\qcmxIOOphase{#1}
+}
+\newcommand{\qcmxIOI}[2][0]{
+  \def\qcmxIOIamp{#2}
+  \def\qcmxIOIphase{#1}
+}
+\newcommand{\qcmxIIO}[2][0]{
+  \def\qcmxIIOamp{#2}
+  \def\qcmxIIOphase{#1}
+}
+\newcommand{\qcmxIII}[2][0]{
+  \def\qcmxIIIamp{#2}
+  \def\qcmxIIIphase{#1}
+}
+\newcommand{\qcmxClearQQQ}[0]{
+  \qcmxOOO[0]{0}
+  \qcmxOOI[0]{0}
+  \qcmxOIO[0]{0}
+  \qcmxOII[0]{0}
+  \qcmxIOO[0]{0}
+  \qcmxIOI[0]{0}
+  \qcmxIIO[0]{0}
+  \qcmxIII[0]{0}
+}
+
+\newcommand{\qcmxRenderQQQ}[0]{
+  \ifx\qcmxOrientationQQQ\QCMXINTERNALCONSTANTXYZ
+    \QCMXINTERNALrenderQQQxyz
+  \else
+    \PackageError{quantumcubemodel}{"\qcmxOrientationQQQ" is not in [\QCMXINTERNALCONSTANTXYZ]}
+  \fi
+}
+
+\newcommand{\QCMXINTERNALrenderQQQxyz}{
+    \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (10+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (10+\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ);
+    \draw[gray, ultra thick] (\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+
+    \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (10+\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, 10+\qcmxOffsetY, \qcmxOffsetZ) -- (10+\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ);
+
+    \draw[gray, ultra thick] (\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ) -- (10+\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ) -- (10+\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (10+\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ) -- (\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ);
+    \draw[gray, ultra thick] (\qcmxOffsetX, 10+\qcmxOffsetY, -10+\qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -10+\qcmxOffsetZ);
+
+    %\ket{000}
+    \begin{scope}[canvas is xy plane at z=\qcmxOffsetZ, shift={(\qcmxOffsetX,\qcmxOffsetY)}, rotate around={\qcmxOOOphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxOOOamp -1, 2*\qcmxOOOamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxOOOamp -1, -1);
+    \end{scope}
+    \node at (1.5+\qcmxOffsetX, -1.5+\qcmxOffsetY, \qcmxOffsetZ) {\small{$\ket{000}$}};
+
+    %\ket{001}
+    \begin{scope}[canvas is xy plane at z=-10+\qcmxOffsetZ, shift={(\qcmxOffsetX,\qcmxOffsetY)}, rotate around={\qcmxOOIphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxOOIamp -1, 2*\qcmxOOIamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxOOIamp -1, -1);
+    \end{scope}
+    \node at (1.5+\qcmxOffsetX, -1.5+\qcmxOffsetY, -10+\qcmxOffsetZ) {\small{$\ket{001}$}};
+
+    %\ket{010}
+    \begin{scope}[canvas is xy plane at z=\qcmxOffsetZ, shift={(\qcmxOffsetX,10+\qcmxOffsetY)}, rotate around={\qcmxOIOphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxOIOamp -1, 2*\qcmxOIOamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxOIOamp -1, -1);
+    \end{scope}
+    \node at (1.5+\qcmxOffsetX, 8.5+\qcmxOffsetY, \qcmxOffsetZ) {\small{$\ket{010}$}};
+
+    %\ket{011}
+    \begin{scope}[canvas is xy plane at z=-10+\qcmxOffsetZ, shift={(\qcmxOffsetX,10+\qcmxOffsetY)}, rotate around={\qcmxOIIphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxOIIamp -1, 2*\qcmxOIIamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxOIIamp -1, -1);
+    \end{scope}
+    \node at (1.5+\qcmxOffsetX, 8.5+\qcmxOffsetY, -10+\qcmxOffsetZ) {\small{$\ket{011}$}};
+
+    %\ket{100}
+    \begin{scope}[canvas is xy plane at z=\qcmxOffsetZ, shift={(10+\qcmxOffsetX,\qcmxOffsetY)}, rotate around={\qcmxIOOphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxIOOamp -1, 2*\qcmxIOOamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxIOOamp -1, -1);
+    \end{scope}
+    \node at (11.5+\qcmxOffsetX, -1.5+\qcmxOffsetY, \qcmxOffsetZ) {\small{$\ket{100}$}};
+
+    %\ket{101}
+    \begin{scope}[canvas is xy plane at z=-10+\qcmxOffsetZ, shift={(10+\qcmxOffsetX,\qcmxOffsetY)}, rotate around={\qcmxIOIphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxIOIamp -1, 2*\qcmxIOIamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxIOIamp -1, -1);
+    \end{scope}
+    \node at (11.5+\qcmxOffsetX, -1.5+\qcmxOffsetY, -10+\qcmxOffsetZ) {\small{$\ket{101}$}};
+
+    %\ket{110}
+    \begin{scope}[canvas is xy plane at z=\qcmxOffsetZ, shift={(10+\qcmxOffsetX,10+\qcmxOffsetY)}, rotate around={\qcmxIIOphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxIIOamp -1, 2*\qcmxIIOamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxIIOamp -1, -1);
+    \end{scope}
+    \node at (11.5+\qcmxOffsetX, 8.5+\qcmxOffsetY, \qcmxOffsetZ) {\small{$\ket{110}$}};
+
+    %\ket{111}
+    \begin{scope}[canvas is xy plane at z=-10+\qcmxOffsetZ, shift={(10+\qcmxOffsetX,10+\qcmxOffsetY)}, rotate around={\qcmxIIIphase:(0,0)}]
+      \draw[fill=gray!30] (-1,-1) rectangle (1, 1);
+      \draw[fill=QCMXINTERNALmaincolor] (-1,-1) rectangle (2*\qcmxIIIamp -1, 2*\qcmxIIIamp -1);
+      \draw[black, ->, thick, >=Stealth] (-1.01,-1) -- (2*\qcmxIIIamp -1, -1);
+    \end{scope}
+    \node at (11.5+\qcmxOffsetX, 8.5+\qcmxOffsetY, -10+\qcmxOffsetZ) {\small{$\ket{111}$}};
+}

@@ -1,0 +1,26 @@
+\newcommand{\qcmxRenderPauliZQ}[1]{
+  \if#1\QCMXINTERNALCONSTANTX
+    \QCMXINTERNALrenderPauliZQx
+  \else\if#1\QCMXINTERNALCONSTANTY
+    \QCMXINTERNALrenderPauliZQy
+  \else\if#1\QCMXINTERNALCONSTANTZ
+    \QCMXINTERNALrenderPauliZQz
+  \else
+    \PackageError{quantumcubemodel}{"#1" is not in [\QCMXINTERNALCONSTANTX, \QCMXINTERNALCONSTANTY, \QCMXINTERNALCONSTANTZ]}
+  \fi\fi\fi
+}
+
+\newcommand{\QCMXINTERNALrenderPauliZQx}{
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (5+\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ);
+  \node at (5+\qcmxOffsetX-0.26, \qcmxOffsetY-0.03, \qcmxOffsetZ) {-};
+}
+
+\newcommand{\QCMXINTERNALrenderPauliZQy}{
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, 5+\qcmxOffsetY, \qcmxOffsetZ);
+  \node at (\qcmxOffsetX+0.01, 5+\qcmxOffsetY-0.3, \qcmxOffsetZ) {-};
+}
+
+\newcommand{\QCMXINTERNALrenderPauliZQz}{
+  \draw[black, line width=4pt, -{Circle[open]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \node at (\qcmxOffsetX-0.18, \qcmxOffsetY-0.22, -5+\qcmxOffsetZ) {-};
+}
