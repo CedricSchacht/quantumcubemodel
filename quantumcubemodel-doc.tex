@@ -13,7 +13,7 @@
 
 \usepackage{adjustbox}
 
-\title{Quantum Cube Model LaTeX Package (v0.2.0)}
+\title{Quantum Cube Model LaTeX Package (v0.2.1)}
 \author{Cedric Schacht \\ \texttt{cedric.schacht@dhbw-stuttgart.de}}
 \date{\today}
 
@@ -68,12 +68,23 @@ SOFTWARE.
 \fullcite{justQuantumComputingCompact2022}
 
 \section*{Changelog}
-\begin{itemize}
-  \item Provide qcmx environment that exposes tikz canvas.
-  \item Give an option to set the main color.
-  \item Provide commands for easier amplitude configuration.
-  \item Provide options to change qubit axis.
-  \item Enable the use of multiple qcm diagramms in one tikz canvas.
+
+
+\begin{itemize}  
+  \item v0.2.1:
+  \begin{itemize}
+    \item Add support for standalone coefficients (amplitudes and phases)
+    \item Add support for Unitary gates with no specific arrow tip style (wireframes)
+    \item Fix PauliZ transformation diagram on three qubit systems
+  \end{itemize}
+  \item v0.2.0:
+  \begin{itemize}
+    \item Provide qcmx environment that exposes tikz canvas.
+    \item Give an option to set the main color.
+    \item Provide commands for easier amplitude configuration.
+    \item Provide options to change qubit axis.
+    \item Enable the use of multiple qcm diagramms in one tikz canvas.
+  \end{itemize}
 \end{itemize}
 
 \section*{Package options}
@@ -103,6 +114,11 @@ for one, two or three qubit diagramms respectively:
   \item \verb|\qcmxRenderQQQ|
 \end{itemize}
 
+You can draw individual coefficients with:
+\begin{itemize}
+  \item \verb|\qcmxRenderCoef|
+\end{itemize}
+
 Initially all amplitudes are set to 0,
 you can change them with the commands of the following pattern:
 
@@ -110,9 +126,16 @@ you can change them with the commands of the following pattern:
 
 \verb|\qcmxOO{}|, \verb|\qcmxOI{}|, \verb|\qcmxIO{}| and \verb|\qcmxII{}| for systems with two qubits.
 
-\verb|\qcmxOOO{}| up to \verb|\qcmxIII{}| for systems with three qubits..
+\verb|\qcmxOOO{}| up to \verb|\qcmxIII{}| for systems with three qubits...
 
-You have to set the amplitudes befor calling the corresponding render command.
+\verb|\qcmxCoef{}| for individual coefficients.
+
+You have to set the amplitudes before calling the corresponding render command.
+The \verb|\qcmxCoef{}| command has one extra parameter for labeling the coefficient.
+\begin{lstlisting}
+    \qcmxCoef[180]{0.71}
+    \qcmxRenderCoef{$\ket{\phi}$}
+\end{lstlisting}
 
 Each of theses commands gives you an optional parameter to set a phase (in degrees from 0 to 360) for the coefficient,
 for the state $-\ket{+}$ this results in:
@@ -133,6 +156,7 @@ you can use the corresponding reset command:
   \item \lstinline|\qcmxClearQ|
   \item \lstinline|\qcmxClearQQ|
   \item \lstinline|\qcmxClearQQQ|
+  \item \lstinline|\qcmxClearCoef|
 \end{itemize}
 
 Use \lstinline|\def\qcmxOrientationQ{y}| to set the orientation of a one qubit system to the y-axis.
@@ -147,13 +171,13 @@ Possible values for orientations are:
 
 \pagebreak
 For the transformations there are specialized render commands for the Pauli-Gates X, Y, Z
-as welle as the Hadamard transformation.
+as well as the Hadamard transformation.
 In multi qubit systems additionaly there a renderers for CNot and CCNot (Toffolie).
 These follow a scheme like thie:
 \lstinline|\qcmxRender[OperationName][QubitCount]{qubits}| where \lstinline|[OperationName]| can be i.e. Hadamard,
 the \lstinline|[QubitCount]| can be QQ.
 
-To render the hadamard transformation on the x qubit in a system with two qubits this results in:
+To render the Hadamard transformation on the x qubit in a system with two qubits this results in:
 \begin{lstlisting}
   \qcmxRenderHadamardQQ{x}
 \end{lstlisting}
@@ -164,10 +188,15 @@ Keep in mind that the \lstinline|\qcmxOrientationQQ| setting will be used to det
 \end{lstlisting}
 Results in a different diagram.
 
+The Wireframe variants of these commands can be used to render unitary operations that do not have a specific diagram representation yet.
+
 The same is true for measurements,
-the only exceptions are CNot and CCNot, where ther is no single qubit (or two qubit for CCNot) version.
+the only exceptions are CNot and CCNot, where there is no single qubit (or two qubit for CCNot) version.
 
 \begin{itemize}
+  \item \lstinline|\qcmxRenderWireframeQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderWireframeQQ one of [x,y,z]|
+  \item \lstinline|\qcmxRenderWireframeQQQ one of [x,y,z]|
   \item \lstinline|\qcmxRenderHadamardQ one of [x,y,z]|
   \item \lstinline|\qcmxRenderHadamardQQ one of [x,y,z]|
   \item \lstinline|\qcmxRenderHadamardQQQ one of [x,y,z]|
