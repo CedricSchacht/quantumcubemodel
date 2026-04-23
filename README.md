@@ -16,6 +16,7 @@ While this means some existing code may need to be updated, the new API makes it
 
 ## Features
 
+- Draw single Coefs
 - Cube diagrams for 1, 2, or 3-qubit quantum states
 - Representation of complex amplitudes and phases
 - Visual transitions for quantum gates:
@@ -23,7 +24,22 @@ While this means some existing code may need to be updated, the new API makes it
   - Pauli-X / Y / Z
   - CNot
   - Toffoli (CCNot)
+  - Wireframe (for unknown gates)
 - exposing tikz canvas for extended usecases
+
+## Running Tests
+
+There is a Python Script that is used to generate on png per feature of this package,
+and compares those against the images in `./golden` (which are manualy checked for correctnes).
+
+> `./generate-diagrams.py`
+
+## Generating final sty file
+
+There is a Python Script that concats all the files in `./quantumcubemodel` into the final .sty file.
+Changes to the package should be made in that dir and or the `qcmx.sty` file.
+
+> `./build.py`
 
 ## License
 
