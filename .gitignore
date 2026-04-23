@@ -57,3 +57,6 @@ latexmkrc
 # Mac and Windows junk
 .DS_Store
 Thumbs.db
+
+generated-diagrams/
+diff/

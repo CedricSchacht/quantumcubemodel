@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{quantumcubemodel}[2025/12/09 v0.2.0 Quantum Cube Model Visualization]
+\ProvidesPackage{quantumcubemodel}[2026/05/01 v0.2.1 Quantum Cube Model Visualization]
 
 \RequirePackage{xcolor}
 \RequirePackage{kvoptions}
@@ -514,8 +514,8 @@
 %region Wireframe on y
 \newcommand{\QCMXINTERNALrenderWireframeQQy}[0]{
   \ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTXY
-    \qcmxOrientationQQ
-  \else\ifx\QCMXINTERNALplane\QCMXINTERNALCONSTANTYZ
+    \QCMXINTERNALrenderWireframeQQyINxy
+  \else\ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTYZ
     \QCMXINTERNALrenderWireframeQQyINyz
   \else
     \PackageError{quantumcubemodel}{"\qcmxOrientationQQ" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTYZ]}
@@ -932,8 +932,8 @@
 %region PauliX on y
 \newcommand{\QCMXINTERNALrenderPauliXQQy}[0]{
   \ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTXY
-    \qcmxOrientationQQ
-  \else\ifx\QCMXINTERNALplane\QCMXINTERNALCONSTANTYZ
+    \QCMXINTERNALrenderPauliXQQyINxy
+  \else\ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTYZ
     \QCMXINTERNALrenderPauliXQQyINyz
   \else
     \PackageError{quantumcubemodel}{"\qcmxOrientationQQ" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTYZ]}
@@ -1096,7 +1096,7 @@
 }
 
 \newcommand{\QCMXINTERNALrenderPauliYQz}{
-  \draw[black, line width=4pt, {Hooks[]}-{Hooks[]} >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
+  \draw[black, line width=4pt, {Hooks[]}-{Hooks[]}, >=Stealth] (\qcmxOffsetX, \qcmxOffsetY, \qcmxOffsetZ) -- (\qcmxOffsetX, \qcmxOffsetY, -5+\qcmxOffsetZ);
 }
 
 %region FILE: quantumcubemodel/qcmx-pauliy-qq.tex

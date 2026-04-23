@@ -39,8 +39,8 @@
 %region Wireframe on y
 \newcommand{\QCMXINTERNALrenderWireframeQQy}[0]{
   \ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTXY
-    \qcmxOrientationQQ
-  \else\ifx\QCMXINTERNALplane\QCMXINTERNALCONSTANTYZ
+    \QCMXINTERNALrenderWireframeQQyINxy
+  \else\ifx\qcmxOrientationQQ\QCMXINTERNALCONSTANTYZ
     \QCMXINTERNALrenderWireframeQQyINyz
   \else
     \PackageError{quantumcubemodel}{"\qcmxOrientationQQ" is not in [\QCMXINTERNALCONSTANTXY, \QCMXINTERNALCONSTANTYZ]}
