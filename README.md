@@ -2,6 +2,8 @@
 
 Visualize quantum states and gate operations using the quantum cube model in LaTeX.
 
+![readme.png](readme.png)
+
 ## Overview
 
 The `quantumcubemodel` package provides simple LaTeX commands for creating intuitive cube-based diagrams to represent quantum states of 1, 2, or 3 qubits. 
